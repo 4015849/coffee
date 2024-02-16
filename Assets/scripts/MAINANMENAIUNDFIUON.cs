@@ -11,4 +11,9 @@ public class MAINANMENAIUNDFIUON : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void QuitGame()
+    {
+        Debug.Log("game hath been quitted !");
+        Application.Quit();
+    }
 }
