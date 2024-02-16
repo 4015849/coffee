@@ -13,7 +13,7 @@ public class MAINANMENAIUNDFIUON : MonoBehaviour
 
     public void QuitGame()
     {
-        Debug.Log("game hath been quitted !");
         Application.Quit();
+        Debug.Log("game hath been quitted !");
     }
 }
