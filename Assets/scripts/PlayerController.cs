@@ -40,7 +40,6 @@ public class PlayerController : MonoBehaviour
             if (!success)
             {
                 success = TryMove(new Vector2(movementInput.x, 0));
-
             }
 
             if (!success)
@@ -49,6 +48,7 @@ public class PlayerController : MonoBehaviour
             }
 
             animator.SetBool("isMoving", success);
+
         }
         else
         {
