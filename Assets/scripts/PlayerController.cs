@@ -27,7 +27,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        animator.SetFloat("horizontal", movementInput.x);
+        animator.SetFloat("vertical", movementInput.y);
+        animator.SetFloat("speed", movementInput.sqrMagnitude);
     }
 
     private void FixedUpdate()
@@ -47,21 +49,6 @@ public class PlayerController : MonoBehaviour
                 success = TryMove(new Vector2(0, movementInput.y));
             }
 
-            animator.SetBool("isMoving", success);
-
-        }
-        else
-        {
-            animator.SetBool("isMoving", false);
-        }
-
-        // Set direction of sprite to movement direction
-        if(movementInput.x < 0)
-        {
-            spriteRenderer.flipX = true;
-        } else if (movementInput.x > 0)
-        {
-            spriteRenderer.flipX = false;
         }
       
     }
