@@ -30,6 +30,12 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("horizontal", movementInput.x);
         animator.SetFloat("vertical", movementInput.y);
         animator.SetFloat("speed", movementInput.sqrMagnitude);
+
+        if(movementInput.x == 1 || movementInput.x == -1 || movementInput.y == 1 || movementInput.y == -1)
+        {
+            animator.SetFloat("lastMoveX", movementInput.x);
+            animator.SetFloat("lastMoveY", movementInput.y);
+        }
     }
 
     private void FixedUpdate()
