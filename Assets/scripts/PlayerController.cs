@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +9,9 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 1f;
     public float collisionOffset = 0.05f;
     public ContactFilter2D movementFilter;
+    private float attackTime = .25f;
+    private float attackCounter = .25f;
+    private bool isAttacking;
 
     Vector2 movementInput;
     SpriteRenderer spriteRenderer;
@@ -35,6 +39,25 @@ public class PlayerController : MonoBehaviour
             animator.SetFloat("lastMoveX", movementInput.x);
             animator.SetFloat("lastMoveY", movementInput.y);
         }
+
+        if (isAttacking)
+        {
+            rb.velocity = Vector2.zero;
+            attackCounter -= Time.deltaTime;
+            if (attackCounter <= 0)
+            {
+                animator.SetBool("isAttacking", false);
+                isAttacking = false;
+            }
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("fire");
+            attackCounter = attackTime;
+            animator.SetBool("isAttacking", true);
+            isAttacking = true;
+        }
     }
 
     private void FixedUpdate()
@@ -53,9 +76,7 @@ public class PlayerController : MonoBehaviour
             {
                 success = TryMove(new Vector2(0, movementInput.y));
             }
-
         }
-      
     }
 
     private bool TryMove(Vector2 direction)
@@ -91,8 +112,4 @@ public class PlayerController : MonoBehaviour
         movementInput = movementValue.Get<Vector2>();
     }
 
-    void OnFire()
-    {
-        animator.SetTrigger("swordAttack");
-    }
 }
