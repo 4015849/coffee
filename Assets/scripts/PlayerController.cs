@@ -9,9 +9,6 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 1f;
     public float collisionOffset = 0.05f;
     public ContactFilter2D movementFilter;
-    private float attackTime = .1f;
-    private float attackCounter = .1f;
-    private bool isAttacking;
     Vector2 movementInput;
     SpriteRenderer spriteRenderer;
     Rigidbody2D rb;
@@ -39,17 +36,6 @@ public class PlayerController : MonoBehaviour
             animator.SetFloat("lastMoveX", movementInput.x);
             animator.SetFloat("lastMoveY", movementInput.y);
         }
-
-        if (isAttacking)
-        {
-            rb.velocity = Vector2.zero;
-            attackCounter -= Time.deltaTime;
-            if (attackCounter <= 0)
-            {
-                animator.SetBool("isAttacking", false);
-                isAttacking = false;
-            }
-        }
     }
 
     private void FixedUpdate()
@@ -70,7 +56,7 @@ public class PlayerController : MonoBehaviour
                 {
                     success = TryMove(new Vector2(0, movementInput.y));
                 }
-            }
+            } 
         }
     }
 
@@ -111,9 +97,6 @@ public class PlayerController : MonoBehaviour
     {
         animator.SetTrigger("swordAttack");
         Debug.Log("fire");
-        attackCounter = attackTime;
-        animator.SetBool("isAttacking", true);
-        isAttacking = true;
     }
 
     public void LockMove()
