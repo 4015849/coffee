@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
     bool canMove = true;
+    public swordAttack swordAttack;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -57,6 +59,12 @@ public class PlayerController : MonoBehaviour
                     success = TryMove(new Vector2(0, movementInput.y));
                 }
             } 
+
+            // set sword attack directions to movement directions
+            if(movementInput.x < 0)
+            {
+                
+            }
         }
     }
 
