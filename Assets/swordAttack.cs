@@ -1,16 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static swordAttack;
 
 public class swordAttack : MonoBehaviour
 {
     BoxCollider2D hitbox;
     public AttackDirection attackDirection;
+    GameObject player;
+    PlayerController playerController;
 
     // Start is called before the first frame update
     void Start()
     {
         hitbox = GetComponent<BoxCollider2D>();
+        hitbox.enabled = false;
+        playerController = GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -18,7 +23,6 @@ public class swordAttack : MonoBehaviour
     {
         
     }
-
     public enum AttackDirection
     {
         left, right, up, down
@@ -26,15 +30,15 @@ public class swordAttack : MonoBehaviour
 
     public void Awake()
     {
-        switch(attackDirection)
+        switch (attackDirection)
         {
             case AttackDirection.left:
                 attackLeft();
                 break;
-            case AttackDirection.right: 
+            case AttackDirection.right:
                 attackRight();
                 break;
-            case AttackDirection.up: 
+            case AttackDirection.up:
                 attackUp();
                 break;
             case AttackDirection.down:

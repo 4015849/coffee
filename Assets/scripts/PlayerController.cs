@@ -15,7 +15,10 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
     bool canMove = true;
-    public swordAttack swordAttack;
+    public GameObject swordHitbox;
+    swordAttack sword;
+    public float lastMoveX;
+    public float lastMoveY;
     
 
     // Start is called before the first frame update
@@ -24,6 +27,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        sword = swordHitbox.GetComponent<swordAttack>();
     }
 
     // Update is called once per frame
@@ -36,7 +40,9 @@ public class PlayerController : MonoBehaviour
         if(movementInput.x == 1 || movementInput.x == -1 || movementInput.y == 1 || movementInput.y == -1)
         {
             animator.SetFloat("lastMoveX", movementInput.x);
+            lastMoveX = movementInput.x;
             animator.SetFloat("lastMoveY", movementInput.y);
+            lastMoveY = movementInput.y;
         }
     }
 
@@ -59,12 +65,6 @@ public class PlayerController : MonoBehaviour
                     success = TryMove(new Vector2(0, movementInput.y));
                 }
             } 
-
-            // set sword attack directions to movement directions
-            if(movementInput.x < 0)
-            {
-                
-            }
         }
     }
 
