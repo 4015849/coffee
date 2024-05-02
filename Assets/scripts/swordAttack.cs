@@ -9,6 +9,8 @@ public class swordAttack : MonoBehaviour
     public AttackDirection attackDirection;
     GameObject player;
     PlayerController playerController;
+    public float lastMoveX;
+    public float lastMoveY;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +24,26 @@ public class swordAttack : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void FixedUpdate()
+    {
+        if (playerController.lastMoveX < -0.1)
+        {
+            attackDirection = AttackDirection.left;
+        }
+        if (playerController.lastMoveX > 0.1)
+        {
+            attackDirection = AttackDirection.right;
+        }
+        if (playerController.lastMoveY < -0.1)
+        {
+            attackDirection = AttackDirection.down;
+        }
+        if (playerController.lastMoveY > 0.1)
+        {
+            attackUp();
+        }
     }
     public enum AttackDirection
     {
