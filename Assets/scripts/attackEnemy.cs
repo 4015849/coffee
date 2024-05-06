@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bigbadbososodafjlaskdfj : MonoBehaviour
+public class attackEnemy : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -14,11 +14,5 @@ public class bigbadbososodafjlaskdfj : MonoBehaviour
     void Update()
     {
         
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("die");
-        Destroy(gameObject);
     }
 }
