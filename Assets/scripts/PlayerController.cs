@@ -132,7 +132,7 @@ public class PlayerController : MonoBehaviour
             enemy enemy = collision.gameObject.GetComponent<enemy>();
             if (enemy != null)
             {
-                enemy.Health -= damage;
+                enemy.health -= damage;
             }
         }
     }
