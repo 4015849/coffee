@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     bool canMove = true;
     public GameObject swordHitbox;
     BoxCollider2D hitbox;
-    public float damage = 3;
+    public float enemyDamage = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -132,7 +132,8 @@ public class PlayerController : MonoBehaviour
             enemy enemy = collision.gameObject.GetComponent<enemy>();
             if (enemy != null)
             {
-                enemy.health -= damage;
+                enemy.health -= enemyDamage;
+                Debug.Log(enemy.health);
             }
         }
     }
