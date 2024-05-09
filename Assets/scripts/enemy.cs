@@ -12,6 +12,7 @@ public class enemy : MonoBehaviour
     Animator animator;
     public GameObject areaAttack;
     CircleCollider2D attackRange;
+    public float areaDamage = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -46,5 +47,19 @@ public class enemy : MonoBehaviour
         gameObject.SetActive(false);
         cam.m_Priority = 2;
         Debug.Log("defeated");
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            //deal damage to the player
+            PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+            if(player != null)
+            {
+                player.health -= areaDamage;
+                Debug.Log(player.health);
+            }
+        }
     }
 }

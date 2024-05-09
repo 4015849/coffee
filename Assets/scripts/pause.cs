@@ -46,4 +46,9 @@ public class pause : MonoBehaviour
         Debug.Log("quit");
         Application.Quit();
     }
+
+    public void ReturnToMain()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
 }

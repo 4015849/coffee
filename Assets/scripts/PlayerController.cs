@@ -17,7 +17,10 @@ public class PlayerController : MonoBehaviour
     bool canMove = true;
     public GameObject swordHitbox;
     BoxCollider2D hitbox;
-    public float enemyDamage = 3;
+    public float swordDamage = 3;
+    public float health = 10;
+    public GameObject gameOverMenu;
+    public GameObject enemy;
 
     // Start is called before the first frame update
     void Start()
@@ -63,6 +66,19 @@ public class PlayerController : MonoBehaviour
                 }
             } 
         }
+        if (health <= 0)
+        {
+            Defeated();
+        }
+        // the below is a beginning attempt at figuring out sorting order changes please fix this tomorrow 
+        //if(gameObject.transform.position.y > enemy.transform.position.y)
+       // {
+           // spriteRenderer.sortingOrder = -1;
+       // }
+       // else
+        //{
+           // spriteRenderer.sortingOrder = 0;
+      //  }
     }
 
     private bool TryMove(Vector2 direction)
@@ -132,9 +148,15 @@ public class PlayerController : MonoBehaviour
             enemy enemy = collision.gameObject.GetComponent<enemy>();
             if (enemy != null)
             {
-                enemy.health -= enemyDamage;
+                enemy.health -= swordDamage;
                 Debug.Log(enemy.health);
             }
         }
+    }
+
+    public void Defeated()
+    {
+        gameOverMenu.SetActive(true);
+        Time.timeScale = 0;
     }
 }
