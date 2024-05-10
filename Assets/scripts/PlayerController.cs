@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
     bool canMove = true;
     public GameObject swordHitbox;
     BoxCollider2D hitbox;
-    public float swordDamage = 3;
     public float health = 10;
     public GameObject gameOverMenu;
     public GameObject enemy;
@@ -70,15 +69,6 @@ public class PlayerController : MonoBehaviour
         {
             Defeated();
         }
-        // the below is a beginning attempt at figuring out sorting order changes please fix this tomorrow 
-        //if(gameObject.transform.position.y > enemy.transform.position.y)
-       // {
-           // spriteRenderer.sortingOrder = -1;
-       // }
-       // else
-        //{
-           // spriteRenderer.sortingOrder = 0;
-      //  }
     }
 
     private bool TryMove(Vector2 direction)
@@ -132,26 +122,6 @@ public class PlayerController : MonoBehaviour
         canMove = true;
         hitbox.enabled = false;
         Debug.Log("unlocked");
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("die");
-        Destroy(collision.gameObject);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            // deal damage to the enemy
-            enemy enemy = collision.gameObject.GetComponent<enemy>();
-            if (enemy != null)
-            {
-                enemy.health -= swordDamage;
-                Debug.Log(enemy.health);
-            }
-        }
     }
 
     public void Defeated()
