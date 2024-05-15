@@ -729,7 +729,7 @@ MonoBehaviour:
   collisionOffset: 0.05
   movementFilter:
     useTriggers: 0
-    useLayerMask: 0
+    useLayerMask: 1
     useDepth: 0
     useOutsideDepth: 0
     useNormalAngle: 0
@@ -745,6 +745,7 @@ MonoBehaviour:
   health: 10
   gameOverMenu: {fileID: 710158846}
   enemy: {fileID: 960027048}
+  swordDamage: 3
 --- !u!114 &246069944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -807,7 +808,7 @@ GameObject:
   - component: {fileID: 267318963}
   - component: {fileID: 267318964}
   - component: {fileID: 267318965}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: area attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -877,7 +878,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHitbox: {fileID: 458526848}
-  areaDamage: 1
 --- !u!1 &387933569
 GameObject:
   m_ObjectHideFlags: 3
@@ -1211,7 +1211,7 @@ GameObject:
   m_Component:
   - component: {fileID: 458526849}
   - component: {fileID: 458526850}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1955,7 +1955,7 @@ GameObject:
   - component: {fileID: 745120778}
   - component: {fileID: 745120780}
   - component: {fileID: 745120781}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: sword hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2035,7 +2035,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHitbox: {fileID: 1647512998}
-  swordDamage: 3
 --- !u!1 &831157953
 GameObject:
   m_ObjectHideFlags: 0
@@ -2191,6 +2190,7 @@ MonoBehaviour:
   cam: {fileID: 2076944605}
   player: {fileID: 246069936}
   areaAttack: {fileID: 267318962}
+  areaDamage: 1
 --- !u!70 &960027050
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -5440,7 +5440,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1647512999}
   - component: {fileID: 1647513000}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
