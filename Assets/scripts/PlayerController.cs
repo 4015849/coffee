@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public float health = 10;
     public GameObject gameOverMenu;
     public GameObject enemy;
+    public float swordDamage = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -128,5 +129,19 @@ public class PlayerController : MonoBehaviour
     {
         gameOverMenu.SetActive(true);
         Time.timeScale = 0;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            // deal damage to the enemy
+            enemy enemy = collision.gameObject.GetComponent<enemy>();
+            if (enemy != null)
+            {
+                enemy.health -= swordDamage;
+                Debug.Log(enemy.health);
+            }
+        }
     }
 }
