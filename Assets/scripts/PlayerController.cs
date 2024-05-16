@@ -21,6 +21,9 @@ public class PlayerController : MonoBehaviour
     public GameObject gameOverMenu;
     public GameObject enemy;
     public float swordDamage = 3;
+    public BoxCollider2D feet;
+    public GameObject enemyHitbox;
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +33,8 @@ public class PlayerController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         hitbox = swordHitbox.GetComponent<BoxCollider2D>();
         hitbox.enabled = false;
+        movementFilter.SetLayerMask(1);
+        feet = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -74,23 +79,24 @@ public class PlayerController : MonoBehaviour
 
     private bool TryMove(Vector2 direction)
     {
-        if (direction != Vector2.zero) { 
-        // Check for potential collisions
-        int count = rb.Cast(
+        if (direction != Vector2.zero) 
+        { 
+            // Check for potential collisions
+            int count = feet.Cast(
             direction, // X and Y values between -1 and 1 that represent the direction from the body to look for collisions
             movementFilter, // The settings that determine where a collision can occur on such as layers to collide with
             castCollisions, // List of collisions to store the found collisions into after the Cast is finished
             moveSpeed * Time.fixedDeltaTime + collisionOffset); // The amount to cast equal to the movement plus an offset
 
-        if (count == 0)
-        {
-            rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+            if (count == 0)
+            {
+                rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         else
         {
@@ -133,7 +139,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        Debug.Log(collision.gameObject);
+        if (collision.gameObject == enemyHitbox)
         {
             // deal damage to the enemy
             enemy enemy = collision.gameObject.GetComponent<enemy>();

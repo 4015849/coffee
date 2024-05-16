@@ -567,7 +567,7 @@ GameObject:
   - component: {fileID: 246069945}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -656,7 +656,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 72
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -746,6 +746,8 @@ MonoBehaviour:
   gameOverMenu: {fileID: 710158846}
   enemy: {fileID: 960027048}
   swordDamage: 3
+  feet: {fileID: 246069941}
+  enemyHitbox: {fileID: 1647512998}
 --- !u!114 &246069944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1212,8 +1214,8 @@ GameObject:
   - component: {fileID: 458526849}
   - component: {fileID: 458526850}
   m_Layer: 3
-  m_Name: hitbox
-  m_TagString: Untagged
+  m_Name: player hitbox
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2034,7 +2036,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a16ecce9f7890947af4b8b07aa5ef04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHitbox: {fileID: 1647512998}
 --- !u!1 &831157953
 GameObject:
   m_ObjectHideFlags: 0
@@ -2168,7 +2169,7 @@ GameObject:
   - component: {fileID: 960027054}
   m_Layer: 0
   m_Name: poltergeist
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2191,6 +2192,7 @@ MonoBehaviour:
   player: {fileID: 246069936}
   areaAttack: {fileID: 267318962}
   areaDamage: 1
+  playerHitbox: {fileID: 458526848}
 --- !u!70 &960027050
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2206,7 +2208,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 72
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -5441,8 +5443,8 @@ GameObject:
   - component: {fileID: 1647512999}
   - component: {fileID: 1647513000}
   m_Layer: 6
-  m_Name: hitbox
-  m_TagString: Untagged
+  m_Name: enemy hitbox
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
