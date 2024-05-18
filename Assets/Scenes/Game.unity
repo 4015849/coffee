@@ -748,6 +748,7 @@ MonoBehaviour:
   swordDamage: 3
   feet: {fileID: 246069941}
   enemyHitbox: {fileID: 1647512998}
+  enemyScript: {fileID: 960027049}
 --- !u!114 &246069944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2193,6 +2194,7 @@ MonoBehaviour:
   areaAttack: {fileID: 267318962}
   areaDamage: 1
   playerHitbox: {fileID: 458526848}
+  playerScript: {fileID: 246069943}
 --- !u!70 &960027050
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

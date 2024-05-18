@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     public float swordDamage = 3;
     public BoxCollider2D feet;
     public GameObject enemyHitbox;
+    public enemy enemyScript;
 
 
     // Start is called before the first frame update
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour
         hitbox.enabled = false;
         movementFilter.SetLayerMask(1);
         feet = GetComponent<BoxCollider2D>();
+        enemyScript = enemy.GetComponent<enemy>();
     }
 
     // Update is called once per frame
@@ -142,13 +144,8 @@ public class PlayerController : MonoBehaviour
         Debug.Log(collision.gameObject);
         if (collision.gameObject == enemyHitbox)
         {
-            // deal damage to the enemy
-            enemy enemy = collision.gameObject.GetComponent<enemy>();
-            if (enemy != null)
-            {
-                enemy.health -= swordDamage;
-                Debug.Log(enemy.health);
-            }
+                enemyScript.health -= swordDamage;
+                Debug.Log(enemyScript.health);
         }
     }
 }
