@@ -121,7 +121,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: poltergeist
     originalName: 
-    pivot: {x: 0.5223222, y: 0.13982163}
+    pivot: {x: 0.6710527, y: -0.5277778}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
