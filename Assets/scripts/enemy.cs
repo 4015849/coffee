@@ -14,7 +14,6 @@ public class enemy : MonoBehaviour
     CircleCollider2D attackRange;
     public float areaDamage = 1;
     public GameObject playerHitbox;
-    public PlayerController playerScript;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +23,6 @@ public class enemy : MonoBehaviour
         attackRange = areaAttack.GetComponent<CircleCollider2D>();
         attackRange.enabled = false;
         Debug.Log(health);
-        playerScript = player.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -32,7 +30,9 @@ public class enemy : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            areaAttackStart();
+            attackRange.enabled = true;
+            animator.SetTrigger("areaAttack");
+            Debug.Log("poltergeist areaAttack");
         }
     }
 
@@ -55,21 +55,13 @@ public class enemy : MonoBehaviour
         Debug.Log(collision.gameObject);
         if (collision.gameObject == playerHitbox)
         {
-                playerScript.health -= areaDamage;
-                Debug.Log(playerScript.health);
+            //deal damage to the player
+            PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+            if (player != null)
+            {
+                player.health -= areaDamage;
+                Debug.Log(player.health);
+            }
         }
-    }
-
-    public void areaAttackStart()
-    {
-        attackRange.enabled = true;
-        animator.SetTrigger("areaAttack");
-        Debug.Log("poltergeist areaAttack");
-    }
-
-    public void areaAttackEnd()
-    {
-        attackRange.enabled = false;
-        Debug.Log("areaAttack ended");
     }
 }
