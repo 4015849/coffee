@@ -1,6 +1,7 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class enemy : MonoBehaviour
@@ -15,6 +16,10 @@ public class enemy : MonoBehaviour
     public float areaDamage = 1;
     public GameObject playerHitbox;
     public PlayerController playerScript;
+    public TextMeshProUGUI playerHealthTxt;
+    public GameObject winMenu;
+    public AudioSource prowler;
+
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +30,7 @@ public class enemy : MonoBehaviour
         attackRange.enabled = false;
         Debug.Log(health);
         playerScript = player.GetComponent<PlayerController>();
+        prowler = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -46,7 +52,9 @@ public class enemy : MonoBehaviour
     public void Defeated()
     {
         gameObject.SetActive(false);
-        cam.m_Priority = 2;
+        winMenu.SetActive(true);
+        Time.timeScale = 0;
+        //cam.m_Priority = 2;
         Debug.Log("defeated");
     }
 
@@ -55,8 +63,9 @@ public class enemy : MonoBehaviour
         Debug.Log(collision.gameObject);
         if (collision.gameObject == playerHitbox)
         {
-                playerScript.health -= areaDamage;
-                Debug.Log(playerScript.health);
+            playerScript.health -= areaDamage;
+            playerHealthTxt.text = playerScript.health.ToString();
+            Debug.Log(playerScript.health);
         }
     }
 
@@ -64,6 +73,7 @@ public class enemy : MonoBehaviour
     {
         attackRange.enabled = true;
         animator.SetTrigger("areaAttack");
+        prowler.Play();
         Debug.Log("poltergeist areaAttack");
     }
 

@@ -1409,6 +1409,13 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'use wasd to move
 
+    click to attack
+
+
+    (enemy attack is currently
+    bound to "t")
+
+
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 586e85d708ea8c04ea0f37b153b550f7, type: 2}

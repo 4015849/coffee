@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -24,6 +25,8 @@ public class PlayerController : MonoBehaviour
     public BoxCollider2D feet;
     public GameObject enemyHitbox;
     public enemy enemyScript;
+    public TextMeshProUGUI enemyHealthTxt;
+    public AudioSource slash;
 
 
     // Start is called before the first frame update
@@ -37,6 +40,7 @@ public class PlayerController : MonoBehaviour
         movementFilter.SetLayerMask(1);
         feet = GetComponent<BoxCollider2D>();
         enemyScript = enemy.GetComponent<enemy>();
+        slash = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -116,6 +120,7 @@ public class PlayerController : MonoBehaviour
     void OnFire()
     {
         animator.SetTrigger("swordAttack");
+        slash.Play();
         Debug.Log("fire");
     }
 
@@ -144,8 +149,9 @@ public class PlayerController : MonoBehaviour
         Debug.Log(collision.gameObject);
         if (collision.gameObject == enemyHitbox)
         {
-                enemyScript.health -= swordDamage;
-                Debug.Log(enemyScript.health);
+            enemyScript.health -= swordDamage;
+            enemyHealthTxt.text = enemyScript.health.ToString();
+            Debug.Log(enemyScript.health);
         }
     }
 }
