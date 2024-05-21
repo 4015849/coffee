@@ -19,6 +19,7 @@ public class enemy : MonoBehaviour
     public TextMeshProUGUI playerHealthTxt;
     public GameObject winMenu;
     public AudioSource prowler;
+    public float healthDrop = 0;
 
 
     // Start is called before the first frame update
@@ -47,6 +48,12 @@ public class enemy : MonoBehaviour
         if (health <= 0)
         {
             Defeated();
+        }
+        if (healthDrop >= 10)
+        {
+            areaAttackStart();
+            healthDrop = 0;
+            Debug.Log(healthDrop);
         }
     }
     public void Defeated()

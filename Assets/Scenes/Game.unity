@@ -974,7 +974,7 @@ GameObject:
   - component: {fileID: 246069946}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1152,7 +1152,7 @@ MonoBehaviour:
   health: 10
   gameOverMenu: {fileID: 710158846}
   enemy: {fileID: 960027048}
-  swordDamage: 3
+  swordDamage: 1
   feet: {fileID: 246069941}
   enemyHitbox: {fileID: 1647512998}
   enemyScript: {fileID: 960027049}
@@ -1372,6 +1372,37 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.35
+--- !u!1 &270072400
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 270072401}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &270072401
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270072400}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 960027053}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &353688218
 GameObject:
   m_ObjectHideFlags: 0
@@ -3031,6 +3062,7 @@ GameObject:
   - component: {fileID: 960027049}
   - component: {fileID: 960027054}
   - component: {fileID: 960027055}
+  - component: {fileID: 960027056}
   m_Layer: 0
   m_Name: poltergeist
   m_TagString: Untagged
@@ -3061,6 +3093,7 @@ MonoBehaviour:
   playerHealthTxt: {fileID: 1825591307}
   winMenu: {fileID: 1355372473}
   prowler: {fileID: 960027055}
+  healthDrop: 0
 --- !u!70 &960027050
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -3190,6 +3223,7 @@ Transform:
   m_Children:
   - {fileID: 267318963}
   - {fileID: 1647512999}
+  - {fileID: 270072401}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &960027054
@@ -3309,6 +3343,36 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &960027056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960027048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: b61b05d9976360f43816c33331e110a3, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: poltergeist
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &969553426
 GameObject:
   m_ObjectHideFlags: 0

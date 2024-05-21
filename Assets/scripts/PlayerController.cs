@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
         feet = GetComponent<BoxCollider2D>();
         enemyScript = enemy.GetComponent<enemy>();
         slash = GetComponent<AudioSource>();
+        Debug.Log(canMove);
     }
 
     // Update is called once per frame
@@ -141,7 +142,8 @@ public class PlayerController : MonoBehaviour
     public void Defeated()
     {
         gameOverMenu.SetActive(true);
-        Time.timeScale = 0;
+        UnlockMove();
+        gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -151,7 +153,9 @@ public class PlayerController : MonoBehaviour
         {
             enemyScript.health -= swordDamage;
             enemyHealthTxt.text = enemyScript.health.ToString();
+            enemyScript.healthDrop += swordDamage;
             Debug.Log(enemyScript.health);
+            Debug.Log(enemyScript.healthDrop);
         }
     }
 }
