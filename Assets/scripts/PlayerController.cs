@@ -153,7 +153,10 @@ public class PlayerController : MonoBehaviour
         {
             enemyScript.health -= swordDamage;
             enemyHealthTxt.text = enemyScript.health.ToString();
-            enemyScript.healthDrop += swordDamage;
+            if(enemyScript.playerDetector.activeSelf == true)
+            {
+                enemyScript.healthDrop += swordDamage;
+            }
             Debug.Log(enemyScript.health);
             Debug.Log(enemyScript.healthDrop);
         }

@@ -21,6 +21,12 @@ public class enemy : MonoBehaviour
     public AudioSource prowler;
     public float healthDrop = 0;
     public bool canAreaAttack = false;
+    public GameObject playerDetector;
+    public Vector2 minX = new Vector2 (-1.2f, 0f);
+    public Vector2 maxX = new Vector2 (1.2f, 0f);
+    public bool canMove = true;
+    public float moveSpeed = 1f;
+    public Rigidbody2D rb;
 
 
     // Start is called before the first frame update
@@ -33,6 +39,7 @@ public class enemy : MonoBehaviour
         Debug.Log(health);
         playerScript = player.GetComponent<PlayerController>();
         prowler = GetComponent<AudioSource>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -50,11 +57,20 @@ public class enemy : MonoBehaviour
         {
             Defeated();
         }
-        if (healthDrop >= 10 && canAreaAttack == true) //need to find a way to separate the colliders
+        if (healthDrop >= 10 && canAreaAttack == true)
         {
             areaAttackStart();
             healthDrop = 0;
             Debug.Log(healthDrop);
+        }
+
+        //movement loop
+        while(canMove == true)
+        {
+            if(moveSpeed > 0)
+            {
+                rb.MovePosition(rb.position + maxX * Time.deltaTime * moveSpeed);
+            }
         }
     }
     public void Defeated()
@@ -88,6 +104,7 @@ public class enemy : MonoBehaviour
     public void areaAttackEnd()
     {
         attackRange.enabled = false;
+        canAreaAttack = false;
         Debug.Log("areaAttack ended");
     }
 }

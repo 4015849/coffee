@@ -17,7 +17,7 @@ public class detectionScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        gameObject.transform.position = enemy.transform.position;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
