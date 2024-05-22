@@ -20,6 +20,7 @@ public class enemy : MonoBehaviour
     public GameObject winMenu;
     public AudioSource prowler;
     public float healthDrop = 0;
+    public bool canAreaAttack = false;
 
 
     // Start is called before the first frame update
@@ -49,7 +50,7 @@ public class enemy : MonoBehaviour
         {
             Defeated();
         }
-        if (healthDrop >= 10)
+        if (healthDrop >= 10 && canAreaAttack == true) //need to find a way to separate the colliders
         {
             areaAttackStart();
             healthDrop = 0;
