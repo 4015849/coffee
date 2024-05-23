@@ -22,8 +22,8 @@ public class enemy : MonoBehaviour
     public float healthDrop = 0;
     public bool canAreaAttack = false;
     public GameObject playerDetector;
-    public Vector2 minX = new Vector2 (-1.2f, 0f);
-    public Vector2 maxX = new Vector2 (1.2f, 0f);
+    public Vector2 minX = new Vector2 (-1.2f, 0.5f);
+    public Vector2 maxX = new Vector2 (1.2f, 0.5f);
     public bool canMove = true;
     public float moveSpeed = 1f;
     public Rigidbody2D rb;
@@ -64,14 +64,23 @@ public class enemy : MonoBehaviour
             Debug.Log(healthDrop);
         }
 
-        //movement loop
-        while(canMove == true)
+        //movement setup
+
+        if(canMove == true)
         {
-            if(moveSpeed > 0)
-            {
-                rb.MovePosition(rb.position + maxX * Time.deltaTime * moveSpeed);
-            }
+            movingRight();
+            //if (Vector2.Distance(transform.position, maxX) <= 0)
+            //{
+              //  movingLeft();
+               // Debug.Log(Vector2.Distance(transform.position, maxX));
+          //  }
+           // if (//Vector2.Distance(transform.position, maxX) >= 2.4)
+           // {
+           //    // movingRight();
+           //    // Debug.Log(Vector2.Distance(transform.position, minX));
+           // }
         }
+
     }
     public void Defeated()
     {
@@ -95,6 +104,7 @@ public class enemy : MonoBehaviour
 
     public void areaAttackStart()
     {
+        canMove = false;
         attackRange.enabled = true;
         animator.SetTrigger("areaAttack");
         prowler.Play();
@@ -105,6 +115,21 @@ public class enemy : MonoBehaviour
     {
         attackRange.enabled = false;
         canAreaAttack = false;
+        canMove = true;
         Debug.Log("areaAttack ended");
+    }
+
+    public void movingRight()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, maxX, Time.deltaTime * moveSpeed);
+        Debug.Log("moving right");
+        movingLeft();
+    }
+
+    public void movingLeft()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, minX, Time.deltaTime * moveSpeed);
+        Debug.Log("moving left");
+        movingRight();
     }
 }
