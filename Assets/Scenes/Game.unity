@@ -1452,9 +1452,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c154e85162d6d74bafd9f22502f4378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  enemy: {fileID: 0}
-  enemyScript: {fileID: 0}
+  player: {fileID: 246069936}
+  enemy: {fileID: 960027048}
+  enemyScript: {fileID: 960027049}
 --- !u!1 &353688218
 GameObject:
   m_ObjectHideFlags: 0
@@ -3148,10 +3148,10 @@ MonoBehaviour:
   healthDrop: 0
   canAreaAttack: 0
   playerDetector: {fileID: 0}
-  minX: {x: -1.2, y: 0}
-  maxX: {x: 1.2, y: 0}
+  minX: {x: -1.2, y: 0.5}
+  maxX: {x: 1.2, y: 0.5}
   canMove: 1
-  moveSpeed: 1
+  moveSpeed: 0.5
   rb: {fileID: 960027051}
 --- !u!70 &960027050
 CapsuleCollider2D:

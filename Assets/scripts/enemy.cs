@@ -27,6 +27,8 @@ public class enemy : MonoBehaviour
     public bool canMove = true;
     public float moveSpeed = 1f;
     public Rigidbody2D rb;
+    private float direction = 1;
+    private float currentPosition = 0.5f;
 
 
     // Start is called before the first frame update
@@ -49,6 +51,17 @@ public class enemy : MonoBehaviour
         {
             areaAttackStart();
         }
+
+        //movement setup
+
+        if (canMove == true)
+        {
+            currentPosition = Mathf.Clamp01(currentPosition + moveSpeed * Time.deltaTime * direction);
+            if(direction == 1 && currentPosition > 0.99) direction = -1;
+            if(direction == -1 && currentPosition < 0.01) direction = 1;
+
+            transform.position = Vector3.Lerp(maxX, minX, currentPosition);
+        }
     }
 
     private void FixedUpdate()
@@ -63,24 +76,6 @@ public class enemy : MonoBehaviour
             healthDrop = 0;
             Debug.Log(healthDrop);
         }
-
-        //movement setup
-
-        if(canMove == true)
-        {
-            movingRight();
-            //if (Vector2.Distance(transform.position, maxX) <= 0)
-            //{
-              //  movingLeft();
-               // Debug.Log(Vector2.Distance(transform.position, maxX));
-          //  }
-           // if (//Vector2.Distance(transform.position, maxX) >= 2.4)
-           // {
-           //    // movingRight();
-           //    // Debug.Log(Vector2.Distance(transform.position, minX));
-           // }
-        }
-
     }
     public void Defeated()
     {
@@ -123,13 +118,11 @@ public class enemy : MonoBehaviour
     {
         transform.position = Vector2.MoveTowards(transform.position, maxX, Time.deltaTime * moveSpeed);
         Debug.Log("moving right");
-        movingLeft();
     }
 
     public void movingLeft()
     {
         transform.position = Vector2.MoveTowards(transform.position, minX, Time.deltaTime * moveSpeed);
         Debug.Log("moving left");
-        movingRight();
     }
 }
