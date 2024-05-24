@@ -139,6 +139,26 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
+  - name: poltergeist_Frame_1
+    originalName: 
+    pivot: {x: 0.66666675, y: -0.5555556}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 84
+      width: 72
+      height: 72
+    spriteID: 67dabc675be217341b6c2109e5d38eb6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 84}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -148,7 +168,7 @@ ScriptedImporter:
     layerType: 0
     blendMode: 0
     cells:
-    - name: poltergeist
+    - name: poltergeist_Frame_0
       frameIndex: 0
       cellRect:
         x: 112
@@ -156,6 +176,14 @@ ScriptedImporter:
         width: 72
         height: 72
       spriteId: 28757b93feae3294baec77c566afe8a6
+    - name: poltergeist_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 112
+        y: 40
+        width: 72
+        height: 72
+      spriteId: 67dabc675be217341b6c2109e5d38eb6
     linkedCells: []
     parentIndex: -1
   platformSettings: []
