@@ -25,7 +25,7 @@ public class enemy : MonoBehaviour
     public Vector2 minX = new Vector2 (-1.2f, 0.5f);
     public Vector2 maxX = new Vector2 (1.2f, 0.5f);
     public bool canMove = true;
-    public float moveSpeed = 1f;
+    public float moveSpeed = .5f;
     public Rigidbody2D rb;
     private float direction = 1;
     private float currentPosition = 0.5f;
