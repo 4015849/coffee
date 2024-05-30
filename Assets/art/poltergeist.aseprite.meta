@@ -161,15 +161,15 @@ ScriptedImporter:
     uvTransform: {x: 166, y: 84}
   - name: poltergeist_Frame_2
     originalName: 
-    pivot: {x: 0.62745094, y: -0.25490198}
+    pivot: {x: 0.66666675, y: -0.5555556}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
+      x: 140
       y: 166
-      width: 102
-      height: 102
+      width: 72
+      height: 72
     spriteID: 1ebd68bb61a41714a978814fc7ed2878
     spriteBone: []
     spriteOutline: []
@@ -178,8 +178,88 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 166}
+    uvTransform: {x: 140, y: 166}
   - name: poltergeist_Frame_3
+    originalName: 
+    pivot: {x: 0.66666675, y: -0.5555556}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 140
+      y: 246
+      width: 72
+      height: 72
+    spriteID: 52b12d9aacdffa04b99fb486385a7fcf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 140, y: 246}
+  - name: poltergeist_Frame_4
+    originalName: 
+    pivot: {x: 0.6363637, y: -0.36363637}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 412
+      width: 88
+      height: 88
+    spriteID: e29cec1bb06fed849860a88dc77b99a7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 412}
+  - name: poltergeist_Frame_5
+    originalName: 
+    pivot: {x: 0.62745094, y: -0.25490198}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 302
+      width: 102
+      height: 102
+    spriteID: 75c6190bb5328e4469ce6e7d2f9f2758
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 302}
+  - name: poltergeist_Frame_6
+    originalName: 
+    pivot: {x: 0.6015625, y: -0.10156251}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 166
+      width: 128
+      height: 128
+    spriteID: 6035623f7404a4e43912fa956b1445bb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 166}
+  - name: poltergeist_Frame_7
     originalName: 
     pivot: {x: 0.5844156, y: 0}
     alignment: 9
@@ -190,7 +270,7 @@ ScriptedImporter:
       y: 4
       width: 154
       height: 154
-    spriteID: 52b12d9aacdffa04b99fb486385a7fcf
+    spriteID: 699f3f2ea6cf8f74480e89092cea53d8
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -227,19 +307,51 @@ ScriptedImporter:
     - name: poltergeist_Frame_2
       frameIndex: 2
       cellRect:
+        x: 112
+        y: 40
+        width: 72
+        height: 72
+      spriteId: 1ebd68bb61a41714a978814fc7ed2878
+    - name: poltergeist_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 112
+        y: 40
+        width: 72
+        height: 72
+      spriteId: 52b12d9aacdffa04b99fb486385a7fcf
+    - name: poltergeist_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 104
+        y: 32
+        width: 88
+        height: 88
+      spriteId: e29cec1bb06fed849860a88dc77b99a7
+    - name: poltergeist_Frame_5
+      frameIndex: 5
+      cellRect:
         x: 96
         y: 26
         width: 102
         height: 102
-      spriteId: 1ebd68bb61a41714a978814fc7ed2878
-    - name: poltergeist_Frame_3
-      frameIndex: 3
+      spriteId: 75c6190bb5328e4469ce6e7d2f9f2758
+    - name: poltergeist_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 83
+        y: 13
+        width: 128
+        height: 128
+      spriteId: 6035623f7404a4e43912fa956b1445bb
+    - name: poltergeist_Frame_7
+      frameIndex: 7
       cellRect:
         x: 70
         y: 0
         width: 154
         height: 154
-      spriteId: 52b12d9aacdffa04b99fb486385a7fcf
+      spriteId: 699f3f2ea6cf8f74480e89092cea53d8
     linkedCells: []
     parentIndex: -1
   platformSettings:
