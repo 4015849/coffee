@@ -43,6 +43,7 @@ public class enemy : MonoBehaviour
         prowler = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
         animator.SetBool("isDamaged", false);
+        animator.SetBool("isAngry", false);
     }
 
     // Update is called once per frame
@@ -73,7 +74,7 @@ public class enemy : MonoBehaviour
         }
         if (healthDrop >= 10 && canAreaAttack == true)
         {
-            areaAttackStart();
+            StartCoroutine(attackWait());
             healthDrop = 0;
             Debug.Log(healthDrop);
         }
@@ -92,17 +93,22 @@ public class enemy : MonoBehaviour
         Debug.Log(collision.gameObject);
         if (collision.gameObject == playerHitbox)
         {
-            playerScript.health -= areaDamage;
-            playerHealthTxt.text = playerScript.health.ToString();
-            playerScript.animator.SetBool("isDamaged", true);
-            Debug.Log(playerScript.animator.GetBool("isDamaged"));
-            Debug.Log(playerScript.health);
+            if(playerScript.damageTaken == 0)
+            {
+                playerScript.health -= areaDamage;
+                playerHealthTxt.text = playerScript.health.ToString();
+                playerScript.animator.SetBool("isDamaged", true);
+                Debug.Log(playerScript.animator.GetBool("isDamaged"));
+                Debug.Log(playerScript.health);
+                playerScript.damageTaken = 1;
+                Debug.Log(playerScript.damageTaken);
+            }
         }
     }
 
     public void areaAttackStart()
     {
-        canMove = false;
+        animator.SetBool("isAngry", false);
         attackRange.enabled = true;
         animator.SetTrigger("areaAttack");
         prowler.Play();
@@ -115,8 +121,10 @@ public class enemy : MonoBehaviour
         canAreaAttack = false;
         canMove = true;
         playerScript.animator.SetBool("isDamaged", false);
+        playerScript.damageTaken = 0;
         Debug.Log(playerScript.animator.GetBool("isDamaged"));
         Debug.Log("areaAttack ended");
+        Debug.Log(playerScript.damageTaken);
     }
 
     public void movingRight()
@@ -129,5 +137,13 @@ public class enemy : MonoBehaviour
     {
         transform.position = Vector2.MoveTowards(transform.position, minX, Time.deltaTime * moveSpeed);
         Debug.Log("moving left");
+    }
+
+    IEnumerator attackWait()
+    {
+        canMove = false;
+        animator.SetBool("isAngry", true);
+        yield return new WaitForSeconds(.5f);
+        areaAttackStart();
     }
 }

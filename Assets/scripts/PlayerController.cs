@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     public enemy enemyScript;
     public TextMeshProUGUI enemyHealthTxt;
     public AudioSource slash;
+    public float damageTaken = 0;
 
 
     // Start is called before the first frame update
