@@ -1148,6 +1148,7 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  animator: {fileID: 246069945}
   swordHitbox: {fileID: 745120777}
   health: 10
   gameOverMenu: {fileID: 710158846}
@@ -3138,6 +3139,7 @@ MonoBehaviour:
   virtualCamera: {fileID: 2076944604}
   cam: {fileID: 2076944605}
   player: {fileID: 246069936}
+  animator: {fileID: 960027054}
   areaAttack: {fileID: 267318962}
   areaDamage: 1
   playerHitbox: {fileID: 458526848}

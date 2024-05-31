@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     Vector2 movementInput;
     SpriteRenderer spriteRenderer;
     Rigidbody2D rb;
-    Animator animator;
+    public Animator animator;
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
     bool canMove = true;
     public GameObject swordHitbox;
@@ -136,6 +136,8 @@ public class PlayerController : MonoBehaviour
     {
         canMove = true;
         hitbox.enabled = false;
+        enemyScript.animator.SetBool("isDamaged", false);
+        Debug.Log(enemyScript.animator.GetBool("isDamaged"));
         Debug.Log("unlocked");
     }
 
@@ -157,6 +159,8 @@ public class PlayerController : MonoBehaviour
             {
                 enemyScript.healthDrop += swordDamage;
             }
+            enemyScript.animator.SetBool("isDamaged", true);
+            Debug.Log(enemyScript.animator.GetBool("isDamaged"));
             Debug.Log(enemyScript.health);
             Debug.Log(enemyScript.healthDrop);
         }

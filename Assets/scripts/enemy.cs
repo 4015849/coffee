@@ -10,7 +10,7 @@ public class enemy : MonoBehaviour
     public GameObject virtualCamera;
     public CinemachineVirtualCamera cam;
     public GameObject player;
-    Animator animator;
+    public Animator animator;
     public GameObject areaAttack;
     CircleCollider2D attackRange;
     public float areaDamage = 1;
@@ -42,6 +42,7 @@ public class enemy : MonoBehaviour
         playerScript = player.GetComponent<PlayerController>();
         prowler = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
+        animator.SetBool("isDamaged", false);
     }
 
     // Update is called once per frame
@@ -93,6 +94,8 @@ public class enemy : MonoBehaviour
         {
             playerScript.health -= areaDamage;
             playerHealthTxt.text = playerScript.health.ToString();
+            playerScript.animator.SetBool("isDamaged", true);
+            Debug.Log(playerScript.animator.GetBool("isDamaged"));
             Debug.Log(playerScript.health);
         }
     }
@@ -111,6 +114,8 @@ public class enemy : MonoBehaviour
         attackRange.enabled = false;
         canAreaAttack = false;
         canMove = true;
+        playerScript.animator.SetBool("isDamaged", false);
+        Debug.Log(playerScript.animator.GetBool("isDamaged"));
         Debug.Log("areaAttack ended");
     }
 
