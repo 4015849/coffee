@@ -29,6 +29,8 @@ public class enemy : MonoBehaviour
     public Rigidbody2D rb;
     private float direction = 1;
     private float currentPosition = 0.5f;
+    public GameObject fireball;
+    public Vector2 fireballStart;
 
 
     // Start is called before the first frame update
@@ -64,6 +66,7 @@ public class enemy : MonoBehaviour
 
             transform.position = Vector3.Lerp(maxX, minX, currentPosition);
         }
+        fireballStart = new Vector2(player.transform.position.x, 1.5f);
     }
 
     private void FixedUpdate()
@@ -133,5 +136,20 @@ public class enemy : MonoBehaviour
         animator.SetBool("isAngry", true);
         yield return new WaitForSeconds(1f);
         areaAttackStart();
+    }
+
+    IEnumerator fireballTimer()
+    {
+        yield return new WaitForSeconds(3);
+        StartCoroutine(fireballAttack());
+    }
+
+    IEnumerator fireballAttack()
+    {
+        GameObject clone;
+        clone = Instantiate(fireball);
+        clone.transform.position = fireballStart;
+        yield return new WaitForSeconds(1);
+        Destroy(clone);
     }
 }

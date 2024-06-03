@@ -140,7 +140,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 112
-        y: 220
+        y: 400
         width: 72
         height: 72
       alignment: 0
@@ -161,7 +161,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 432
-        y: 220
+        y: 400
         width: 72
         height: 72
       alignment: 0
@@ -181,10 +181,10 @@ TextureImporter:
       name: poltergeist_2
       rect:
         serializedVersion: 2
-        x: 744
-        y: 212
-        width: 88
-        height: 88
+        x: 752
+        y: 400
+        width: 72
+        height: 72
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,12 +202,12 @@ TextureImporter:
       name: poltergeist_3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 26
-        width: 102
-        height: 102
-      alignment: 9
-      pivot: {x: 0.50980395, y: 0.49019608}
+        x: 112
+        y: 220
+        width: 72
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -223,12 +223,12 @@ TextureImporter:
       name: poltergeist_4
       rect:
         serializedVersion: 2
-        x: 403
-        y: 13
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5078125, y: 0.4921875}
+        x: 424
+        y: 212
+        width: 88
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -244,7 +244,49 @@ TextureImporter:
       name: poltergeist_5
       rect:
         serializedVersion: 2
-        x: 710
+        x: 736
+        y: 206
+        width: 102
+        height: 102
+      alignment: 9
+      pivot: {x: 0.50980395, y: 0.49019608}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8d41e693d9bfe14c9377e996e729184
+      internalID: 639767275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poltergeist_6
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 13
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5078125, y: 0.4921875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee0a495cc659322409b9636dc4079ac3
+      internalID: 1694379382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poltergeist_7
+      rect:
+        serializedVersion: 2
+        x: 390
         y: 0
         width: 154
         height: 154
@@ -255,8 +297,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8d41e693d9bfe14c9377e996e729184
-      internalID: 639767275
+      spriteID: 62bb6a9a871475444a1bfecc5be3dd75
+      internalID: -399841209
       vertices: []
       indices: 
       edges: []
@@ -278,6 +320,8 @@ TextureImporter:
       poltergeist_3: -313803166
       poltergeist_4: -257895438
       poltergeist_5: 639767275
+      poltergeist_6: 1694379382
+      poltergeist_7: -399841209
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
