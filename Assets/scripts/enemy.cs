@@ -49,10 +49,10 @@ public class enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            areaAttackStart();
-        }
+        //if (Input.GetKeyDown(KeyCode.T))
+        //{
+        //    areaAttackStart();
+        //}
 
         //movement setup
 
@@ -131,7 +131,7 @@ public class enemy : MonoBehaviour
     {
         canMove = false;
         animator.SetBool("isAngry", true);
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(1f);
         areaAttackStart();
     }
 }

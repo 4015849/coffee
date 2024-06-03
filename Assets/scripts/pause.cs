@@ -7,13 +7,26 @@ public class pause : MonoBehaviour
 {
     public GameObject pauseMenu;
     public static bool isPaused;
+    public GameObject optionsMenu;
+    public GameObject keybindingsMenu;
+    public GameObject volumeMenu;
 
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (isPaused)
+            if (keybindingsMenu.activeSelf == enabled || volumeMenu.activeSelf == enabled)
+            {
+                keybindingsMenu.SetActive(false);
+                volumeMenu.SetActive(false);
+            }
+            else if (optionsMenu.activeSelf == enabled)
+            {
+                optionsMenu.SetActive(false);
+            }
+            else if (isPaused)
             {
                 Continue();
             }
