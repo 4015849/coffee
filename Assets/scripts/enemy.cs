@@ -72,7 +72,7 @@ public class enemy : MonoBehaviour
         {
             Defeated();
         }
-        if (healthDrop >= 10 && canAreaAttack == true)
+        if (healthDrop >= 5 && canAreaAttack == true)
         {
             StartCoroutine(attackWait());
             healthDrop = 0;
@@ -125,18 +125,6 @@ public class enemy : MonoBehaviour
         Debug.Log(playerScript.animator.GetBool("isDamaged"));
         Debug.Log("areaAttack ended");
         Debug.Log(playerScript.damageTaken);
-    }
-
-    public void movingRight()
-    {
-        transform.position = Vector2.MoveTowards(transform.position, maxX, Time.deltaTime * moveSpeed);
-        Debug.Log("moving right");
-    }
-
-    public void movingLeft()
-    {
-        transform.position = Vector2.MoveTowards(transform.position, minX, Time.deltaTime * moveSpeed);
-        Debug.Log("moving left");
     }
 
     IEnumerator attackWait()
