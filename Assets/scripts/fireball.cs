@@ -16,6 +16,7 @@ public class fireball : MonoBehaviour
     public GameObject playerHitbox;
     public float fireballDamage = 1;
     public TextMeshProUGUI playerHealthTxt;
+    public AudioSource swoosh;
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +45,7 @@ public class fireball : MonoBehaviour
     {
         yield return new WaitForSeconds(.5f);
         rb.velocity = new Vector2(0, -2f);
+        swoosh.Play();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
