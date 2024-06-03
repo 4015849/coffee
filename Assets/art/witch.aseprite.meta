@@ -228,7 +228,7 @@ ScriptedImporter:
     layerType: 0
     blendMode: 0
     cells:
-    - name: witch
+    - name: witch_Frame_0
       frameIndex: 0
       cellRect:
         x: 5
@@ -236,6 +236,14 @@ ScriptedImporter:
         width: 117
         height: 41
       spriteId: aef55d19d969c664ca9b15f35ca64e69
+    - name: witch_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 5
+        y: 1
+        width: 117
+        height: 41
+      spriteId: 10452c9ac7164e84c86813f20b5c7eca
     linkedCells: []
     parentIndex: -1
   platformSettings:

@@ -96,15 +96,15 @@ public class enemy : MonoBehaviour
         Debug.Log(collision.gameObject);
         if (collision.gameObject == playerHitbox)
         {
-            if(playerScript.damageTaken == 0)
+            if(playerScript.areaDamageTaken == 0)
             {
                 playerScript.health -= areaDamage;
                 playerHealthTxt.text = playerScript.health.ToString();
                 playerScript.animator.SetBool("isDamaged", true);
                 Debug.Log(playerScript.animator.GetBool("isDamaged"));
                 Debug.Log(playerScript.health);
-                playerScript.damageTaken = 1;
-                Debug.Log(playerScript.damageTaken);
+                playerScript.areaDamageTaken = 1;
+                Debug.Log(playerScript.areaDamageTaken);
             }
         }
     }
@@ -124,10 +124,10 @@ public class enemy : MonoBehaviour
         canAreaAttack = false;
         canMove = true;
         playerScript.animator.SetBool("isDamaged", false);
-        playerScript.damageTaken = 0;
+        playerScript.areaDamageTaken = 0;
         Debug.Log(playerScript.animator.GetBool("isDamaged"));
         Debug.Log("areaAttack ended");
-        Debug.Log(playerScript.damageTaken);
+        Debug.Log(playerScript.areaDamageTaken);
     }
 
     IEnumerator attackWait()
@@ -136,20 +136,5 @@ public class enemy : MonoBehaviour
         animator.SetBool("isAngry", true);
         yield return new WaitForSeconds(1f);
         areaAttackStart();
-    }
-
-    IEnumerator fireballTimer()
-    {
-        yield return new WaitForSeconds(3);
-        StartCoroutine(fireballAttack());
-    }
-
-    IEnumerator fireballAttack()
-    {
-        GameObject clone;
-        clone = Instantiate(fireball);
-        clone.transform.position = fireballStart;
-        yield return new WaitForSeconds(1);
-        Destroy(clone);
     }
 }

@@ -1174,7 +1174,8 @@ MonoBehaviour:
   enemyScript: {fileID: 960027049}
   enemyHealthTxt: {fileID: 219566891}
   slash: {fileID: 246069946}
-  damageTaken: 0
+  areaDamageTaken: 0
+  fireballDamageTaken: 0
 --- !u!114 &246069944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3629,7 +3630,6 @@ Transform:
   m_Children:
   - {fileID: 267318963}
   - {fileID: 1647512999}
-  - {fileID: 1767253102}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &960027054
@@ -7810,11 +7810,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1662576703}
   m_CullTransparentMesh: 1
---- !u!4 &1767253102 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8842893962509898331, guid: fc11616a91ccce343bfd1ef80ee8a537, type: 3}
-  m_PrefabInstance: {fileID: 11197839986636343}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1774885359 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2385501510928442827, guid: 6bc7e457478c4484d890920c56f5397f, type: 3}
@@ -8260,8 +8255,12 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 960027053}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 308124081688575073, guid: fc11616a91ccce343bfd1ef80ee8a537, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1377589567823212817, guid: fc11616a91ccce343bfd1ef80ee8a537, type: 3}
       propertyPath: m_Name
       value: fireball
@@ -8279,16 +8278,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 960027049}
     - target: {fileID: 3055311323738424269, guid: fc11616a91ccce343bfd1ef80ee8a537, type: 3}
+      propertyPath: playerHitbox
+      value: 
+      objectReference: {fileID: 458526848}
+    - target: {fileID: 3055311323738424269, guid: fc11616a91ccce343bfd1ef80ee8a537, type: 3}
       propertyPath: playerScript
       value: 
       objectReference: {fileID: 246069943}
+    - target: {fileID: 3055311323738424269, guid: fc11616a91ccce343bfd1ef80ee8a537, type: 3}
+      propertyPath: playerHealthTxt
+      value: 
+      objectReference: {fileID: 1825591307}
     - target: {fileID: 8842893962509898331, guid: fc11616a91ccce343bfd1ef80ee8a537, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.095
       objectReference: {fileID: 0}
     - target: {fileID: 8842893962509898331, guid: fc11616a91ccce343bfd1ef80ee8a537, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.841
+      value: -1.341
       objectReference: {fileID: 0}
     - target: {fileID: 8842893962509898331, guid: fc11616a91ccce343bfd1ef80ee8a537, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8300,15 +8307,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8842893962509898331, guid: fc11616a91ccce343bfd1ef80ee8a537, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8842893962509898331, guid: fc11616a91ccce343bfd1ef80ee8a537, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8842893962509898331, guid: fc11616a91ccce343bfd1ef80ee8a537, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8842893962509898331, guid: fc11616a91ccce343bfd1ef80ee8a537, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8438,3 +8445,4 @@ SceneRoots:
   - {fileID: 831157957}
   - {fileID: 1079696132}
   - {fileID: 871489741}
+  - {fileID: 11197839986636343}
